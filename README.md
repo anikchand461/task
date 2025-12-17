@@ -18,7 +18,7 @@ Below are step-by-step setup instructions for **each operating system**.
 
 Go to the **GitHub Releases** page:
 
-👉 https://github.com/anikchand461/task/releases
+👉 [https://github.com/anikchand461/task/releases](https://github.com/anikchand461/task/releases)
 
 Download the correct file:
 
@@ -169,9 +169,16 @@ task add "Buy groceries"
 task list
 ```
 
+Output example:
+
+```
+1. [ ] Buy groceries
+2. [x] Learn Go
+```
+
 ---
 
-### Mark a task as done
+### Mark a single task as done
 
 ```bash
 task done 1
@@ -179,13 +186,33 @@ task done 1
 
 ---
 
-### Reset all tasks
+### Mark **all** tasks as done
 
 ```bash
-task reset
+task done all
+```
+
+---
+
+### Clear (delete) all tasks
+
+```bash
+task clear
 ```
 
 ⚠️ This deletes **all tasks for the current user only**.
+
+---
+
+### Help
+
+```bash
+task help
+task -h
+task --help
+```
+
+Displays all available commands and usage information.
 
 ---
 
@@ -200,6 +227,36 @@ Tasks are stored **per user** at:
 * Each user has a separate task list
 * Data persists across updates
 * Removing the binary does **not** delete tasks
+* Use `task clear` to remove all stored tasks
+
+---
+
+## 🗑️ Uninstall
+
+### macOS / Linux
+
+Remove the binary:
+
+```bash
+sudo rm /usr/local/bin/task
+```
+
+(Optional) Remove all task data:
+
+```bash
+rm -rf ~/.task
+```
+
+---
+
+### Windows
+
+1. Delete `task.exe` from its folder
+2. (Optional) Remove task data:
+
+```powershell
+rmdir /s %USERPROFILE%\.task
+```
 
 ---
 
@@ -208,7 +265,7 @@ Tasks are stored **per user** at:
 If you want to modify the source code:
 
 ```bash
-git clone https://github.com/<your-username>/task.git
+git clone https://github.com/anikchand461/task.git
 cd task
 go run ./cmd/task list
 ```
@@ -229,6 +286,5 @@ MIT License
 
 ## 🙌 Author
 
-Anik Chand
+**Anik Chand**
 Built with ❤️ using Go.
-
