@@ -18,7 +18,7 @@ Below are step-by-step setup instructions for **each operating system**.
 
 Go to the **GitHub Releases** page:
 
-👉 [https://github.com/](https://github.com/)<your-username>/task/releases
+👉 https://github.com/anikchand461/task/releases
 
 Download the correct file:
 
@@ -231,3 +231,4 @@ MIT License
 
 Anik Chand
 Built with ❤️ using Go.
+
