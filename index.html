@@ -1005,7 +1005,11 @@ sudo mv task /usr/local/bin/</code></pre>
             );
         } else if (trimmed === "task clear" || trimmed === "clear") {
           clearTasks();
-        } else if (trimmed === "help" || trimmed === "task help") {
+        } else if (
+          trimmed === "help" ||
+          trimmed === "task --help" ||
+          trimmed === "task help"
+        ) {
           addOutput('<span class="task-text">Available commands:</span>');
           addOutput(
             '<span class="task-item"><span class="task-done">•</span> <span class="task-text">task add "description" - Add a new task</span></span>',
