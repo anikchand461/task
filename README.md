@@ -285,16 +285,11 @@ go build -o task ./cmd/task
 
 ---
 
-## 📄 License
-
-MIT License
-
----
-
 ## 🙌 Author
 
 **Anik Chand**
 Built with ❤️ using Go.
+
 
 
 
