@@ -168,6 +168,11 @@ task
 task add "Buy groceries"
 ```
 
+### Edit a task
+```
+task edit 1 "New description"
+```
+
 ---
 
 ### List all tasks
@@ -190,6 +195,23 @@ Output example:
 ```bash
 task done 1
 ```
+
+---
+
+### Edit a task
+```
+task edit 1 "Updated task description"
+```
+
+Update the description of an existing task without changing its completion status.
+
+Example:
+```
+task add "Buy grocerys"
+task edit 1 "Buy groceries"
+```
+
+⚠️ The task number must be valid, and the description cannot be empty.
 
 ---
 
