@@ -115,3 +115,46 @@ func DoneAll() error {
 
 	return nil
 }
+
+func DoneAll() error {
+	// Get absolute path to ~/.task/tasks.txt
+	path, err := dataFilePath()
+	if err != nil {
+		return err
+	}
+
+	// Open file
+	f, err := os.Open(path)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	// Read all lines
+	var lines []string
+	scanner := bufio.NewScanner(f)
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+	if err := scanner.Err(); err != nil {
+		return err
+	}
+
+	// Mark all tasks as done
+	for i, line := range lines {
+		parts := strings.Split(line, "|")
+		if len(parts) >= 2 {
+			parts[1] = "done"
+			lines[i] = strings.Join(parts, "|")
+		}
+	}
+
+	// Write back to file
+	return os.WriteFile(
+		path,
+		[]byte(strings.Join(lines, "\n")+"\n"),
+		0644,
+	)
+}
+
+
