@@ -407,17 +407,24 @@
 
       .installation-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 24px;
-        margin-bottom: 32px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 0;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .install-card {
         background: var(--terminal-bg);
         border: 1px solid var(--border);
         border-radius: 6px;
-        padding: 24px;
+        padding: 2px;
         transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        min-height: 150px;
       }
 
       .install-card:hover {
@@ -426,20 +433,23 @@
       }
 
       .install-card h3 {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
         color: var(--accent-bright);
-        margin-bottom: 16px;
+        margin-bottom: 2px;
         font-weight: 700;
       }
 
       .install-card pre {
         background: var(--bg);
-        padding: 16px;
+        padding: 2px;
         border-radius: 4px;
         overflow-x: auto;
-        font-size: 0.85rem;
-        line-height: 1.6;
+        font-size: 0.72rem;
+        line-height: 1.2;
         border: 1px solid var(--border);
+        flex: 1;
+        margin: 0;
+      }
       }
 
       .install-card code {
@@ -450,18 +460,32 @@
       /* Features */
       .features-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 32px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
       }
 
       .feature {
-        padding: 24px 0;
+        background: var(--terminal-bg);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 20px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .feature:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 20px rgba(57, 255, 157, 0.2);
+        transform: translateY(-4px);
       }
 
       .feature h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: var(--text);
-        margin-bottom: 8px;
+        margin-bottom: 12px;
         font-weight: 700;
       }
 
@@ -469,6 +493,12 @@
         content: "> ";
         color: var(--accent-bright);
         font-weight: 700;
+      }
+
+      .feature p {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        line-height: 1.5;
       }
 
       .feature p {
