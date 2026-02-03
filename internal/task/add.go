@@ -1,10 +1,16 @@
 package task
 
 import (
+		"strings"
+	"fmt"
 	"os"
 )
 
 func Add(task string) error {
+		// Validate input: reject empty or whitespace-only strings
+	if strings.TrimSpace(task) == "" {
+		return fmt.Errorf("error: task description cannot be empty")
+	}
 	path, err := dataFilePath()
 	if err != nil {
 		return err
