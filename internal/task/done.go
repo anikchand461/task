@@ -73,50 +73,6 @@ func Done(idStr string) error {
 }
 
 func DoneAll() error {
-	path, err := dataFilePath()
-	if err != nil {
-		return err
-	}
-
-	f, err := os.Open(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	scanner := bufio.NewScanner(f)
-	var tasks []string
-	for scanner.Scan() {
-		line := scanner.Text()
-		parts := strings.Split(line, "|")
-		if len(parts) >= 1 {
-			parts[1] = "done"
-			line = strings.Join(parts, "|")
-		}
-		tasks = append(tasks, line)
-	}
-
-	if err := scanner.Err(); err != nil {
-		return err
-	}
-
-	f, err = os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	for _, task := range tasks {
-		_, err = f.WriteString(task + "\n")
-		if err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-func DoneAll() error {
 	// Get absolute path to ~/.task/tasks.txt
 	path, err := dataFilePath()
 	if err != nil {
