@@ -1,10 +1,8 @@
 package task
 
-import (
-	"os"
-)
+import "os"
 
-func Add(task string) error {
+func Add(tasks ...string) error {
 	path, err := dataFilePath()
 	if err != nil {
 		return err
@@ -17,7 +15,15 @@ func Add(task string) error {
 	}
 	defer f.Close()
 
-	_, err = f.WriteString(task + "|pending\n")
-	return err
-}
+	for _, task := range tasks {
+		if task == "" {
+			continue
+		}
+		_, err := f.WriteString(task + "|pending\n")
+		if err != nil {
+			return err
+		}
+	}
 
+	return nil
+}
