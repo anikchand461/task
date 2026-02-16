@@ -47,6 +47,14 @@ func main() {
 		return
 	}
 
+	unlock, err := task.AcquireLock()
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	defer unlock()
+
 	switch os.Args[1] {
 
 	case "add":

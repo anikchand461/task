@@ -1,5 +1,5 @@
 # Built binaries
-task
+/task
 task-mac
 task-mac-intel
 task-linux
