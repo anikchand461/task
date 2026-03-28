@@ -9,10 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout target repo (task)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Checkout living-docs agent
+        uses: actions/checkout@v4
+        with:
+          repository: anikchand461/The-living-docs
+          path: living-docs-agent
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -21,12 +27,13 @@ jobs:
 
       - name: Install dependencies
         run: |
+          cd living-docs-agent
           pip install google-genai httpx pydantic pydantic-settings typer rich \
                       structlog unidiff tenacity python-dotenv fastapi uvicorn
 
       - name: Run living-docs agent
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
           REPO: ${{ github.repository }}
@@ -34,4 +41,5 @@ jobs:
           DATABASE_URL: sqlite:///./living-docs.db
           WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
         run: |
+          cd living-docs-agent
           PYTHONPATH=. python -m cli.main run pr ${{ github.event.pull_request.number }}
