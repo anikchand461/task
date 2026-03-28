@@ -37,4 +37,5 @@ jobs:
           WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
         run: |
           cd living-docs-agent
+          python -c "import os; print('GROQ set:', bool(os.environ.get('GROQ_API_KEY'))); print('NOTION set:', bool(os.environ.get('NOTION_API_KEY')))"
           PYTHONPATH=. python -m cli.main run pr ${{ github.event.pull_request.number }}
