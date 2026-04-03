@@ -307,10 +307,7 @@ go build -o task ./cmd/task
 
 ---
 
-## 🙌 Author
-
-**Anik Chand**
-Built with ❤️ using Go.
+prrrrr ,no more prrrrr please
 
 
 
