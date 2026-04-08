@@ -306,11 +306,9 @@ go build -o task ./cmd/task
 ```
 
 ---
+prprpr rprprprp prprpr rprprpr
 
-## 🙌 Author
 
-**Anik Chand**
-Built with ❤️ using Go.
 
 
 
