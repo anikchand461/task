@@ -306,11 +306,8 @@ go build -o task ./cmd/task
 ```
 
 ---
+Don't ask to pr me again
 
-## 🙌 Author
-
-**Anik Chand**
-Built with ❤️ using Go.
 
 
 
