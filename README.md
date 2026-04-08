@@ -305,12 +305,11 @@ Build locally:
 go build -o task ./cmd/task
 ```
 
+please this time wok please
+
 ---
 
-## 🙌 Author
 
-**Anik Chand**
-Built with ❤️ using Go.
 
 
 
