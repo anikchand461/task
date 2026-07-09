@@ -306,11 +306,9 @@ go build -o task ./cmd/task
 ```
 
 ---
+NO AUTHOR SECTION
 
-## 🙌 Author
 
-**Anik Chand**
-Built with ❤️ using Go.
 
 
 
