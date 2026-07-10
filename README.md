@@ -304,13 +304,10 @@ Build locally:
 ```bash
 go build -o task ./cmd/task
 ```
-
+I am the original owner of task
 ---
 
-## 🙌 Author
 
-**Anik Chand**
-Built with ❤️ using Go.
 
 
 
